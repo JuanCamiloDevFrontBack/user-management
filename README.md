@@ -1,7 +1,7 @@
 # Proyecto de Aprendizaje Java V.17 - Spring Boot V.3.2.0
 # Name App Back --> User Management
 
-Este repositorio contiene un proyecto práctico sobre Java V.16 y Spring Boot V.3.2.0,
+Este repositorio contiene un proyecto práctico sobre Java V.17 y Spring Boot V.3.2.0,
 que permite efectuar acciones de tipo `CRUD` sobre la información a manipular
 utilizando la arquitectura de microservicio, complementada con una base de datos en mariadb
 que almacena y gestiona toda la información de los usuarios.
