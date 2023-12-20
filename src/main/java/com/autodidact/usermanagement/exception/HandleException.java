@@ -16,7 +16,7 @@ public class HandleException extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(CustomException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public ResponseEntity<ResponseErrorDTO> handleExceptionError(CustomException exception) {
+	public ResponseEntity<ResponseErrorDTO> handleExceptionNotFound(CustomException exception) {
 		
 		ResponseErrorDTO customError = ResponseErrorDTO
 				.builder()
