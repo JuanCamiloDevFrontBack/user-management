@@ -12,7 +12,24 @@ Adicionalmente el proyecto cuenta con 2 ambientes, el de `Producción` y `Desarr
 ## Estructura del Proyecto
 
 La estructura del proyecto se diseño teniendo en consideración las mejores prácticas de organización de un proyecto Java con Spring y Spring Boot, quedando su estructura de la siguiente manera:
-* ????
+* src
+    * main/java/com/autodidact/usermanagement
+        * exception
+        * module
+            * login
+                * controller
+                * dao
+                * dto
+                * entity
+                * service
+            * user
+                * controller
+                * dao
+                * dto
+                * entity
+                * service
+        * util
+    *resource
 
 ## Url API con sus Endpoints
 
