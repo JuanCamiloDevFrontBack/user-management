@@ -1,20 +1,11 @@
 package com.autodidact.usermanagement.exception;
 
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import lombok.Data;
-
-@RestControllerAdvice
-@Data
-public class CustomException extends RuntimeException {
-	/* Mirar si se pueden implementar las clases de tipo record
-	 * al manejar excepciones.
-	*/
-	private String code;
+/* Mirar si se pueden implementar las clases de tipo record
+ * al manejar excepciones. */
+public class CustomException extends Exception {
 	
-	public CustomException(String code, String message) {
+	public CustomException(String message) {
 		super(message);
-		this.code = code;
 	}
 	
 }

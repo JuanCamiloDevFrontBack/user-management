@@ -1,5 +1,7 @@
 package com.autodidact.usermanagement.module.login.dto;
 
-public record LoginDTOResponse() {
+import java.io.Serializable;
 
+public record LoginDTOResponse() implements Serializable {
+	
 }
