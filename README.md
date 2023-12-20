@@ -29,7 +29,7 @@ La estructura del proyecto se diseño teniendo en consideración las mejores pr�
                 * entity
                 * service
         * util
-    *resource
+    * resource
 
 ## Url API con sus Endpoints
 
