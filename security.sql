@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2023 a las 06:06:26
+-- Tiempo de generación: 21-12-2023 a las 17:36:27
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `email` varchar(120) NOT NULL,
+  `password` varchar(18) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `login`
+--
+
+INSERT INTO `login` (`id`, `email`, `password`) VALUES
+(1, 'admin@autodidact.com', '12345678');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `menu`
 --
 
@@ -38,6 +57,12 @@ CREATE TABLE `menu` (
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `menu`
