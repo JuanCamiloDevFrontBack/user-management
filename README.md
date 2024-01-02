@@ -5,7 +5,7 @@ Este repositorio contiene un proyecto práctico sobre Java V.17 y Spring Boot V.
 que permite efectuar acciones de tipo `CRUD` sobre la información a manipular
 utilizando la arquitectura de microservicio, complementada con una base de datos en mariadb
 que almacena y gestiona toda la información de los usuarios.
-Este proyecto se divide en 3 ramas `main`, `develop` y `database-mariadb`.
+Este proyecto se divide en 4 ramas `main`, `develop`, `database-mariadb` y `collections-postman`.
 
 [//]: <> (Adicionalmente el proyecto cuenta con 2 ambientes, el de `Producción` y `Desarrollo`.)
 
@@ -29,14 +29,14 @@ La estructura del proyecto se diseño teniendo en consideración las mejores pr�
                 * entity
                 * service
         * util
-    *resource
+    * resource
 
 ## Url API con sus Endpoints
 
 La `API` proporciona las siguintes direcciones a acceder por el cliente para retornar la información:
-* `GET /url`
-* `POST /url`
-* `POST /url`
+* `GET /url???`
+* `POST /url???`
+* `POST /url???`
 
 ## Tecnologías Utilizadas
 
@@ -61,12 +61,17 @@ en este caso el archivo `README`.
 
 ### `develop`
 
-En la rama `develop` encontrarás el proyecto de Java con Spring -  Spring Boot, el cual gestiona usuarios. Incluye la creación de menús para las pantallas a las que pueden acceder, así como otras funcionalidades como la creación de usuarios, asignación de permisos y la actualización de su información de contacto, entre otras.
+En la rama `develop` encontrarás el proyecto de Java con Spring -  Spring Boot, el cual gestiona usuarios. Incluye la creación de menús para las pantallas a las que pueden acceder,
+así como otras funcionalidades como la creación de usuarios, asignación de permisos y la actualización de su información de contacto, entre otras.
 
 ### `database-mariadb`
 
 En la rama `database-mariadb` encontrarás el script de mariadb, el cual contiene la base de datos exportada
 en phpmyAdmin que gestiona la información de los usuarios.
+
+### `collections-postman`
+
+En la rama `collections-postman` encontrarás las colecciones de postman, donde se valido el funcionamiento del microservicio RestFullAPI.
 
 ## Instrucciones de Ejecución
 
@@ -79,6 +84,7 @@ Para poner en ejecución el proyecto de la presente rama se requieren los siguie
 * Xampp instalado, porque ya trae mariadb al instalarlo, pero si gusta puede descargar mariadb sin utilizar xampp.
 * Editor de código ó IDE instalado, en este caso se utilizó Suit Tools 4, pero puede utilizar otro, por ejemplo IntelliJ.
 * Clonar el repositorio: `https://github.com/JuanCamiloDevFrontBack/user-management.git`.
+* Postman instalado para probar el microservicio, sin embargo puede utilizar el de su preferencia o bien utilizar como alternativa `Insomnia`.
 
 ### Pasos para Poner en Ejecución la Aplicación
 
@@ -88,4 +94,4 @@ Ejecutar los siguientes comandos:
 3. Ejecutar la base de datos de forma local importada en el paso # 2.
 4. `mvn clean install` ó desde el propio IDE o edItor de código.
 5. Poner en ejecución el proyecto del repositorio: `https://github.com/JuanCamiloDevFrontBack/user-management.git`.
-7. Abrir en el navegador la siguiente url: `http://localhost:????`.
+7. Abrir en postman o el navegador la siguiente url: `http://localhost:9091/autodidact/???`.
