@@ -1,4 +1,4 @@
-# Proyecto de Aprendizaje Java V.17 - Spring Boot V.3.2.0
+# Proyecto sobre Java V.17 - Spring Boot V.3.2.0
 # Temática: User Management
 
 Este repositorio contiene un proyecto práctico sobre Java V.17 y Spring Boot V.3.2.0,
