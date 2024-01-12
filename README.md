@@ -17,13 +17,7 @@ La estructura del proyecto se diseño teniendo en consideración las mejores pr�
     * main/java/com/autodidact/usermanagement
         * exception
         * module
-            * login
-                * controller
-                * dao
-                * dto
-                * entity
-                * service
-            * user
+            * module-xyz
                 * controller
                 * dao
                 * dto
