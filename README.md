@@ -1,4 +1,4 @@
-# Proyecto sobre Java V.17 - Spring Boot V.3.2.0
+# Proyecto en Java V.17 - Spring Boot V.3.2.0
 # Temática: User Management
 ## Estado del Proyecto: En Desarrollo
 
