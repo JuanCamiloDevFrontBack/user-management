@@ -1,5 +1,6 @@
 # Proyecto sobre Java V.17 - Spring Boot V.3.2.0
 # Temática: User Management
+## Estado del Proyecto: En Desarrollo
 
 Este repositorio contiene un proyecto práctico sobre Java V.17 y Spring Boot V.3.2.0,
 que permite efectuar acciones de tipo `CRUD` sobre la información a manipular
