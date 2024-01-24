@@ -29,7 +29,7 @@ La estructura del proyecto se diseño teniendo en consideración las mejores pr�
 ## Url API con sus Endpoints
 
 La `API` proporciona las siguintes direcciones a acceder por el cliente para retornar la información:
-* `GET /url???`
+* `GET [localhost:9091/autodidact/login](http://localhost:9091/autodidact/login)`
 * `POST /url???`
 * `POST /url???`
 
