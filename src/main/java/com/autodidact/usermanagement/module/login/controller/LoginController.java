@@ -31,7 +31,7 @@ public class LoginController {
 		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
-	@PostMapping
+	@PostMapping()
 	public ResponseEntity<LoginDTORes> requestLoginUser(@RequestBody LoginDTOReq user) {
 		return new ResponseEntity<>(this.loginS.accesValid(user), HttpStatus.OK);
 	}

@@ -14,6 +14,15 @@ public class LoginService {
 	private ILoginDAO loginDao;
 	
 	public LoginDTORes accesValid(LoginDTOReq user) {
+		
+		var listUsingWhere = this.loginDao.searchByUserFirst();
+		System.out.println("list con where: " + listUsingWhere);
+		System.out.println("-----------------");
+		
+		var listUsingWhereJPQL = this.loginDao.searchByIdQueryJPQL(3);
+		System.out.println("list con where JPQL: " + listUsingWhereJPQL);
+		System.out.println("-----------------");
+		
 		var listUsers = this.loginDao.findAll();
 		System.out.println("Users DB: " + listUsers);
 		
