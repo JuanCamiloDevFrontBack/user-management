@@ -3,6 +3,7 @@ package com.autodidact.usermanagement.module.login.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.autodidact.usermanagement.exception.CustomException;
 import com.autodidact.usermanagement.module.login.dao.ILoginDAO;
 import com.autodidact.usermanagement.module.login.dto.LoginDTOReq;
 import com.autodidact.usermanagement.module.login.dto.LoginDTORes;
@@ -35,7 +36,7 @@ public class LoginService {
 		if (y) {
 			return new LoginDTORes("eabc.yt-dfjklfj48sadfs.sadiojhhr", true);
 		} else {
-			return new LoginDTORes("", false);
+			throw new CustomException("Error al realizar Login");
 		}
 	}
 

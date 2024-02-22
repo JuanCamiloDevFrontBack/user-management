@@ -14,6 +14,6 @@ public interface ILoginDAO extends JpaRepository<LoginDAOEntity, Integer> {
 	public LoginDAOEntity searchByUserFirst();
 	
 	@Query("from LoginDAOEntity ld where ld.id = :searchById")
-	LoginDAOEntity searchByIdQueryJPQL(@Param("searchById") Integer searchById);
+	public LoginDAOEntity searchByIdQueryJPQL(@Param("searchById") Integer searchById);
 
 }
