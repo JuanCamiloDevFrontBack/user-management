@@ -44,6 +44,8 @@ Se utilizan las siguientes herramientas:
     * JDCB API
     * JPA
     * Developer Tools
+    * JUnit
+    * mockito
 * Maven V.3.8.6
 * MariaDB V10.4.28
 
@@ -92,4 +94,4 @@ Ejecutar los siguientes comandos:
 3. Ejecutar la base de datos de forma local importada en el paso # 2.
 4. `mvn clean install` ó desde el propio IDE o edItor de código.
 5. Poner en ejecución el proyecto del repositorio: `https://github.com/JuanCamiloDevFrontBack/user-management.git`.
-7. Abrir en postman o el navegador la siguiente url: `http://localhost:9091/autodidact/???`.
+7. Abrir en postman o el navegador la siguiente url: `GET: http://localhost:9091/autodidact/login/welcome-msg`.
