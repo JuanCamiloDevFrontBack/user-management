@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="login")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class LoginDAOEntity implements Serializable {
 
 
