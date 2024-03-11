@@ -10,13 +10,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class HandleException extends ResponseEntityExceptionHandler {
 	
-	/* Nota: aquí se pueden especificar las excepciones generales
+	/* TODO: Nota: aquí se pueden especificar las excepciones generales
 	 * de cualquier tipo que sucedan en toda la aplicación,
 	 * como las de sql, nofound, entre otras.*/
 
 	@ExceptionHandler(CustomException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public ResponseEntity<ResponseErrorDTO> handleExceptionNotFound(CustomException exception) {
+	protected ResponseEntity<ResponseErrorDTO> handleExceptionNotFound(CustomException exception) {
 		
 		var customError = ResponseErrorDTO
 				.builder()
@@ -26,6 +26,43 @@ public class HandleException extends ResponseEntityExceptionHandler {
 		
 		return ResponseEntity
 				.status(HttpStatus.NOT_FOUND)
+				.body(customError);
+		
+	}
+	
+	@ExceptionHandler(CustomException.CustomRequestEmpty.class)
+	@ResponseStatus(HttpStatus.CONFLICT)
+	protected ResponseEntity<ResponseErrorDTO> handleExceptionReqInputsEmptyInner(CustomException.CustomRequestEmpty exception) {
+		
+		var customError = ResponseErrorDTO
+				.builder()
+				.message((String) exception.getMessage())
+				//.message((String) exception.getMessage() + exception.getErrorCampo())
+				.status(HttpStatus.CONFLICT)
+				.build();
+		
+		return ResponseEntity
+				.status(HttpStatus.CONFLICT)
+				.body(customError);
+		
+	}
+	
+	/* 
+	 * TODO: se pone de ejemplo como segunda forma de crear excepciones
+	 * personalizadas de manera centralizada.
+	*/
+	@ExceptionHandler(CustomRequestEmpty.class)
+	@ResponseStatus(HttpStatus.CONFLICT)
+	protected ResponseEntity<ResponseErrorDTO> handleExceptionReqInputsEmpty(CustomRequestEmpty exception) {
+		
+		var customError = ResponseErrorDTO
+				.builder()
+				.message((String) exception.getMessage() + " - " + exception.getErrorCampo())
+				.status(HttpStatus.CONFLICT)
+				.build();
+		
+		return ResponseEntity
+				.status(HttpStatus.CONFLICT)
 				.body(customError);
 		
 	}

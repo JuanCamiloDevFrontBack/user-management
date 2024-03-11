@@ -9,13 +9,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-class ResponseErrorDTO implements Serializable {
-
+public class ResponseErrorDTO implements Serializable {
+/* tener presente agregar una propiedad de tipo lista o mappara pruebas
+	dinamicas de atrinutos de objeto clase*/
 	private static final long serialVersionUID = 1L;
 	private HttpStatus status;
 	private String message;

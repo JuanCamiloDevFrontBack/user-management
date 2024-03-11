@@ -1,5 +1,7 @@
 package com.autodidact.usermanagement.module.login.service;
 
+import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,20 +30,25 @@ public class LoginService {
 		var listUsers = this.loginDao.findAll();
 		System.out.println("Users DB: " + listUsers);
 
-		var x = listUsers.get(0);
-		System.out.println("Users DB: " + x.getEmail());
-		System.out.println("Users DB: " + x.getEmail().equals(user.user()));
-		System.out.println("Users DB: " + x.getPassword().equals(user.password()));
-		var y = x.getEmail().equals(user.user()) && x.getPassword().equals(user.password());
+		var infoUser = listUsers.get(0);
+		System.out.println("Users DB: " + infoUser.getEmail());
+		System.out.println("Users DB: " + infoUser.getEmail().equals(user.user()));
+		System.out.println("Users DB: " + infoUser.getPassword().equals(user.password()));
+		var isUserValid = infoUser.getEmail().equals(user.user())
+				&&
+				infoUser.getPassword().equals(user.password());
 
-		if (y) {
-			return new LoginDTORes("eabc.yt-dfjklfj48sadfs.sadiojhhr", true);
+		if (isUserValid) {
+			var hasAcces = true;
+			return new LoginDTORes("eabc.yt-dfjklfj48sadfs.sadiojhhr", hasAcces);
 		} else {
 			throw new CustomException("Error al realizar Login");
 		}
 	}
 
 	public LoginDTORes accesValid(LoginDTOReq user) {
+		
+		isRequestUserValid(user);
 		
 		var listUsers = this.loginDao.findAll();
 		var isLogged = false;
@@ -61,12 +68,55 @@ public class LoginService {
 
 	}
 	
+	private void isRequestUserValid(LoginDTOReq isUserValid) {
+				
+		var fieldsClass = isUserValid.getClass().getDeclaredFields();
+		
+		Stream.of(fieldsClass).forEach(field -> {
+			var fieldUser = isUserValid.user().equals("")
+			||
+			isUserValid.user().equals(null);
+			
+			var fieldPass = isUserValid.password().equals("")
+					||
+					isUserValid.password().equals(null);
+			
+			if (fieldUser) {
+				System.out.println("campo error" + field.getName());
+				throw new CustomException("Error en la solicitud con el campo")
+				.msgCustomRequestEmpty(field.getName());
+				/*
+				 * TODO: segunda forma de utilizar excepciones
+				 * personalizadas de manera centralizada.
+				 * throw new CustomRequestEmpty("Error en la solicitud con el campo", field.getName());
+				 * */
+			}
+			
+			if (fieldPass) {
+				System.out.println("campo error" + field.getName());
+				throw new CustomException("Error en la solicitud con el campo")
+				.msgCustomRequestEmpty(field.getName());
+				/*
+				 * TODO: segunda forma de utilizar excepciones
+				 * personalizadas de manera centralizada.
+				 * throw new CustomRequestEmpty("Error en la solicitud con el campo", field.getName());
+				 * */
+			}
+		});
+		
+	}
+	
 	private Boolean compareToUser(LoginDAOEntity userDB, LoginDTOReq isUserValid) {
-		return userDB.getEmail()
-				.equals(isUserValid.user())
+		// TODO: Forma 1
+		return isUserValid.equals(userDB);
+		
+		/*
+		 * TODO: Forma 2
+		 * return userDB.getEmail()
+				.equals(isUserValid.get().user())
 				&&
 				userDB.getPassword()
-				.equals(isUserValid.password());
+				.equals(isUserValid.get().password());*/
 	}
 
 }
