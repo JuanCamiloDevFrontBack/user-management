@@ -2,7 +2,6 @@ package com.autodidact.usermanagement.module.login.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.autodidact.usermanagement.module.login.dto.LoginDTOReq;
-import com.autodidact.usermanagement.module.login.dto.LoginDTORes;
+import com.autodidact.usermanagement.module.login.dto.Dto;
 import com.autodidact.usermanagement.module.login.service.LoginService;
 
 @RestController
@@ -33,7 +31,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/test")
-	public ResponseEntity<LoginDTORes> requestLoginUserTest(@RequestBody LoginDTOReq user) {
+	public ResponseEntity<Dto.LoginRes> requestLoginUserTest(@RequestBody Dto.LoginReq user) {
 		/*
 		 * user1: Martha123@gmail.com -- pass: 98765432
 		 * user2: admin@autodidact.com -- pass: 12345678
@@ -42,8 +40,14 @@ public class LoginController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<LoginDTORes> requestLoginUser(@RequestBody LoginDTOReq user) {
+	public ResponseEntity<Dto.LoginRes> requestLoginUser(@RequestBody Dto.LoginReq user) {
+		this.loginS.isRequestUserValid(user);
 		return new ResponseEntity<>(this.loginS.accesValid(user), HttpStatus.OK);
 	}
+	
+	/*@PostMapping("/req-valid")
+	public ResponseEntity<Dto.LoginRes> requestLoginUserValid(@valid @RequestBody Dto.LoginReq user) {
+		return new ResponseEntity<>(this.loginS.accesValid(user), HttpStatus.OK);
+	}*/
 	
 }

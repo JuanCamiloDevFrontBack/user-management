@@ -1,37 +1,43 @@
 package com.autodidact.usermanagement.exception;
 
-/* Mirar si se pueden implementar las clases de tipo record
- * al manejar excepciones. */
-public class CustomException extends RuntimeException {
-	
-	private String message;
-	
-	public CustomException(String message) {
-		super(message);
-		this.message = message;
+public class CustomException {
+
+	public static CustomException.RecordsNotFound msgNotFound(String msg) {
+		return new RecordsNotFound(msg);
 	}
 	
-	public String getMessage() {
-		return this.message;
+	public static CustomException.RequestEmpty msgRequestEmpty(String msg, String fieldClassError) {
+		return new RequestEmpty(msg, fieldClassError);
 	}
-	
-	public CustomException.CustomRequestEmpty msgCustomRequestEmpty(String msg) {
-		return new CustomRequestEmpty(this.getMessage(), msg);
+
+	/* Clases Manejadoras de Excepciones Presonalizadas :) */
+	public static class RecordsNotFound extends RuntimeException {
+
+		private String message;
+
+		public RecordsNotFound(String message) {
+			super(message);
+			this.message = message;
+		}
+
+		public String getMessage() {
+			return this.message;
+		}
 	}
-	
-	public class CustomRequestEmpty extends RuntimeException {
-		
-		private String errorCampo;
-		
-		public CustomRequestEmpty(String message, String errorCampo) {
-			super(message + " --- " + errorCampo);
+
+	public static class RequestEmpty extends RuntimeException {
+
+		private String fieldReqError;
+
+		public RequestEmpty(String message, String fieldReqError) {
+			super(message + " --- " + fieldReqError);
 			// utilizar map o una list
-			this.errorCampo = errorCampo;
+			this.fieldReqError = fieldReqError;
 		}
-		
-		public String getErrorCampo() {
-			return this.errorCampo;
+
+		public String getFieldError() {
+			return this.fieldReqError;
 		}
 	}
-	
+
 }

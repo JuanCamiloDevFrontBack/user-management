@@ -14,9 +14,9 @@ public class HandleException extends ResponseEntityExceptionHandler {
 	 * de cualquier tipo que sucedan en toda la aplicación,
 	 * como las de sql, nofound, entre otras.*/
 
-	@ExceptionHandler(CustomException.class)
+	@ExceptionHandler(CustomException.RecordsNotFound.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	protected ResponseEntity<ResponseErrorDTO> handleExceptionNotFound(CustomException exception) {
+	protected ResponseEntity<ResponseErrorDTO> handleExceptionNotFound(CustomException.RecordsNotFound exception) {
 		
 		var customError = ResponseErrorDTO
 				.builder()
@@ -30,9 +30,9 @@ public class HandleException extends ResponseEntityExceptionHandler {
 		
 	}
 	
-	@ExceptionHandler(CustomException.CustomRequestEmpty.class)
+	@ExceptionHandler(CustomException.RequestEmpty.class)
 	@ResponseStatus(HttpStatus.CONFLICT)
-	protected ResponseEntity<ResponseErrorDTO> handleExceptionReqInputsEmptyInner(CustomException.CustomRequestEmpty exception) {
+	protected ResponseEntity<ResponseErrorDTO> handleExceptionReqInputsEmptyInner(CustomException.RequestEmpty exception) {
 		
 		var customError = ResponseErrorDTO
 				.builder()
